@@ -25,6 +25,11 @@ const App = () => {
       <Navbar />
       <Routes>
         {/* Pages Global */}
+        <Route path="/" element={
+          <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <Home />
+          </ProtectedRoute>
+        } />
         <Route path="/dashboard" element={
           <ProtectedRoute isAuthenticated={isAuthenticated}>
             <Home />
