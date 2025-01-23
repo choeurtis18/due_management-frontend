@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview",
+    "start": "vite preview",
     "test": "jest --config tests/jest.config.js",
     "test:watch": "jest --watch --config tests/jest.config.js"
   },
