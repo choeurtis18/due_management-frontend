@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import { AuthProvider, AuthContext } from './services/AuthContext';
+
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
@@ -21,6 +23,7 @@ const App = () => {
   const isAuthenticated = !!localStorage.getItem('token'); // Vérifie si l'utilisateur est connecté
 
   return (
+    <AuthProvider>
     <Router>
       <Navbar />
       <Routes>
@@ -92,6 +95,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
+    </AuthProvider>
   );
 };
 

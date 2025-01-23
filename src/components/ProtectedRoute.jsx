@@ -1,13 +1,14 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../services/AuthContext';
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
-  // Si l'utilisateur n'est pas authentifié, on redirige vers la page de connexion
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+  const { isAuthenticated: isAuthFromContext } = useContext(AuthContext);
+
+  if (!isAuthFromContext) {
+    return <Navigate to="/login" />;
   }
 
-  // Sinon, on affiche le composant enfant
   return children;
 };
 
